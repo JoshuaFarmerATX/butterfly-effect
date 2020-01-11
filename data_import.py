@@ -1,9 +1,9 @@
-# import requests
-# import pandas as pd
-# import json
-# import pprint
-# import matplotlib as plt
-# import numpy as np
+import requests
+import pandas as pd
+import json
+import pprint
+import matplotlib as plt
+import numpy as np
 
 def get_rest_countries():
     r = requests.get("https://restcountries.eu/rest/v2/all")
