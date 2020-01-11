@@ -14,6 +14,11 @@ def get_rest_countries():
         except:
             pass
 
+    def get_lat_lon(int, d):
+        try:
+            return d['latlng'][int]
+        except:
+            pass
 
     return pd.DataFrame([{
         "Country": d["name"],
@@ -22,7 +27,8 @@ def get_rest_countries():
         "Region": d['region'],
         "Sub-Region": d['subregion'],
         "Population": d['population'],
-        "Lat and Lon": d['latlng'],
+        "Latitutde": get_lat_lon(0,d),
+        "Longitude": get_lat_lon(1,d),
         "Area": d['area'],
         "Timezone": d['timezones'][0],
         "borders": d['borders'],
@@ -31,5 +37,4 @@ def get_rest_countries():
         } for d in raw_data])
 
 df = get_rest_countries()
-print(df.head())
-print(len(df['Country']))
+print(df['Longitude'])
