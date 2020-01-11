@@ -23,18 +23,18 @@ def get_rest_countries():
 
     return pd.DataFrame([{
         "Country": d["name"],
-        "Alpha3 Code": d['alpha3Code'],
+        "Alpha3_Code": d['alpha3Code'],
 #         "Capital": d['capital'],
         "Region": d['region'],
         "Sub-Region": d['subregion'],
 #         "Population": d['population'],
-        "Latitutde": get_lat_lon(0,d),
+        "Latitude": get_lat_lon(0,d),
         "Longitude": get_lat_lon(1,d),
 #         "Area": d['area'],
 #         "Timezone": d['timezones'][0],
         "Borders": d['borders'],
 #         "Currencies": extract_block('currencies', d),
-        "Regional Bloc": extract_block('regionalBlocs', d)
+        "Regional_Bloc": extract_block('regionalBlocs', d)
         } for d in raw_data])
 
 def get_cia_data():
@@ -125,18 +125,18 @@ def get_cia_data():
             "Country": name,
 #             "Government Type": government_type,
             "Population": population,
-            "Internet Users": internet_users,
-            "Internet % of Population": internet_users_percent,
-            "Internet Global Rank": internet_users_rank,
-            "Telephones Fixed Lines": telephones_fixed,
+            "Internet_Users": internet_users,
+            "Internet_%_of_Population": internet_users_percent,
+            "Internet_Global_Rank": internet_users_rank,
+            "Telephones_Fixed_Lines": telephones_fixed,
 #             "Telephones Fixed Lines Global Rank": telephones_fixed_rank,
-            "Telephone Mobile Cellular": telephones_mobile,
+            "Telephone_Mobile_Cellular": telephones_mobile,
 #             "Telephone Mobile Cellular Global Rank": telephones_mobile_rank,
             "Median_age": median_age,
-            "GDP - Purchasing Power Parity": gdp_purchasing,
-            "GDP - Global Rank": gdp_rank,
-            "Education Expenditures": education_expen,
-            "Education Expeditures - Global Rank": education_rank,
+            "GDP_Purchasing_Power_Parity": gdp_purchasing,
+            "GDP_Global_Rank": gdp_rank,
+            "Education_Expenditures": education_expen,
+            "Education_Expeditures_Global_Rank": education_rank,
 
 
         })
