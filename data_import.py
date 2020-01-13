@@ -22,19 +22,19 @@ def get_rest_countries():
             pass
 
     return pd.DataFrame([{
-        "Country": d["name"],
-        "Alpha3_Code": d['alpha3Code'],
+        "country": d["name"],
+        "alpha3_code": d['alpha3Code'],
 #         "Capital": d['capital'],
-        "Region": d['region'],
-        "Sub-Region": d['subregion'],
+        "region": d['region'],
+        "sub-region": d['subregion'],
 #         "Population": d['population'],
-        "Latitude": get_lat_lon(0,d),
-        "Longitude": get_lat_lon(1,d),
+        "latitude": get_lat_lon(0,d),
+        "longitude": get_lat_lon(1,d),
 #         "Area": d['area'],
 #         "Timezone": d['timezones'][0],
-        "Borders": d['borders'],
+        "borders": d['borders'],
 #         "Currencies": extract_block('currencies', d),
-        "Regional_Bloc": extract_block('regionalBlocs', d)
+        "regional_bloc": extract_block('regionalBlocs', d)
         } for d in raw_data])
 
 def get_cia_data():
@@ -122,21 +122,21 @@ def get_cia_data():
             education_rank = np.nan
 
         data_list.append({
-            "Country": name,
+            "country": name,
 #             "Government Type": government_type,
-            "Population": population,
-            "Internet_Users": internet_users,
-            "Internet_%_of_Population": internet_users_percent,
-            "Internet_Global_Rank": internet_users_rank,
-            "Telephones_Fixed_Lines": telephones_fixed,
+            "population": population,
+            "internet_users": internet_users,
+            "internet_%_of_population": internet_users_percent,
+            "internet_global_rank": internet_users_rank,
+            "telephones_fixed_lines": telephones_fixed,
 #             "Telephones Fixed Lines Global Rank": telephones_fixed_rank,
-            "Telephone_Mobile_Cellular": telephones_mobile,
+            "telephone_mobile_cellular": telephones_mobile,
 #             "Telephone Mobile Cellular Global Rank": telephones_mobile_rank,
-            "Median_age": median_age,
-            "GDP_Purchasing_Power_Parity": gdp_purchasing,
-            "GDP_Global_Rank": gdp_rank,
-            "Education_Expenditures": education_expen,
-            "Education_Expeditures_Global_Rank": education_rank,
+            "median_age": median_age,
+            "gdp_purchasing_power_parity": gdp_purchasing,
+            "gdp_global_rank": gdp_rank,
+            "education_expenditures": education_expen,
+            "education_expeditures_global_rank": education_rank,
 
 
         })
