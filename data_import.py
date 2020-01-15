@@ -4,6 +4,8 @@ import json
 import pprint
 import matplotlib as plt
 import numpy as np
+import country_converter as coco
+
 
 def get_rest_countries():
     r = requests.get("https://restcountries.eu/rest/v2/all")
@@ -21,9 +23,9 @@ def get_rest_countries():
         except:
             pass
 
-    return pd.DataFrame([{
+    df =  pd.DataFrame([{
         "country": d["name"],
-        "alpha3_code": d['alpha3Code'],
+        "ISO3": d['alpha3Code'],
 #         "Capital": d['capital'],
         "region": d['region'],
         "sub-region": d['subregion'],
@@ -36,6 +38,18 @@ def get_rest_countries():
 #         "Currencies": extract_block('currencies', d),
         "regional_bloc": extract_block('regionalBlocs', d)
         } for d in raw_data])
+    
+    df = df.append({
+        'country':'World',
+        'ISO3': 'World',
+        'region': 'World',
+        'sub-region': 'World',
+        'latitude': 'World',
+        'longitude': 'World',
+        'borders': 'World',
+        'regional_bloc': 'World'
+              }, ignore_index=True)
+    return df
 
 def get_cia_data():
     with open('factbook.json', encoding='utf-8') as json_file:
@@ -141,4 +155,15 @@ def get_cia_data():
 
         })
         
-    return pd.DataFrame(data_list)
+    df = pd.DataFrame(data_list)
+
+    some_names = list(df.country)
+    standard_names = coco.convert(names=some_names, to='name_short', not_found=None)
+    standard_names
+    iso3_codes = coco.convert(names=standard_names, to='ISO3', not_found=None)
+
+
+    df['ISO3'] = iso3_codes
+    df = df.dropna(subset=['internet_users'])
+    
+    return df
