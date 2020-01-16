@@ -5,6 +5,8 @@ import pprint
 import matplotlib as plt
 import numpy as np
 import country_converter as coco
+import warnings
+import logging
 
 
 def get_rest_countries():
@@ -156,13 +158,18 @@ def get_cia_data():
         })
         
     df = pd.DataFrame(data_list)
-
+    
+    logger = logging.getLogger()
+    logger.disabled = True
+    
     some_names = list(df.country)
     standard_names = coco.convert(names=some_names, to='name_short', not_found=None)
-    standard_names
     iso3_codes = coco.convert(names=standard_names, to='ISO3', not_found=None)
+    
+    logger.disabled = False
 
-
+    
+    
     df['ISO3'] = iso3_codes
     df = df.dropna(subset=['internet_users'])
     
