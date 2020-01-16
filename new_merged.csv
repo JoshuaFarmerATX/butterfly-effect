@@ -1,4 +1,4 @@
-,ISO3,country_y,region,sub-region,latitude,longitude,borders,population,internet_users,internet_%_of_population,median_age,education_expenditures
+,ISO3,Country,Region,Sub-Region,Latitude,Longitude,Borders,Population,Internet Users,Internet % Of Population,Median Age,Education Expenditures
 0,AFG,Afghanistan,Asia,Southern Asia,33.0,65.0,"['IRN', 'PAK', 'TKM', 'UZB', 'TJK', 'CHN']",34940837.0,3531770.0,10.6,19.0,3.9
 1,ALB,Albania,Europe,Southern Europe,41.0,20.0,"['MNE', 'GRC', 'MKD', 'KOS']",3057220.0,2016516.0,66.4,33.4,4.0
 2,DZA,Algeria,Africa,Northern Africa,28.0,3.0,"['TUN', 'LBY', 'NER', 'ESH', 'MRT', 'MLI', 'MAR']",41657488.0,17291463.0,42.9,28.3,
