@@ -12,6 +12,7 @@ pandas = "*"
 requests = "*"
 pprint = "*"
 country_converter = "*"
+plotly = "*"
 
 [requires]
 python_version = "3.7"
